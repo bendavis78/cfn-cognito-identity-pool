@@ -1,0 +1,48 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Custom::CognitoIdentityPool sample template",
+  "Parameters": {
+    "CognitoIdentityPoolCustomResourceLambdaName": {
+      "Type": "String",
+      "Default": "cfn-cognito-identity-pool-0-0-1",
+      "Description": "The name of the Lambda you deployed to test this stack."
+    },
+    "IdentityPoolName": {
+      "Type": "String",
+      "Description": "Name of the Cognito identity pool."
+    },
+    "IdentityPoolDeveloperProviderName": {
+      "Type": "String",
+      "Description": "The \"domain\" by which Cognito will refer to your users."
+    },
+    "FacebookAppID": {
+      "Type": "String",
+      "Description": "Your facebook app id"
+    }
+  },
+  "Resources": {
+    "MyCognitoIdentityPool": {
+      "Type": "Custom::CognitoIdentityPool",   
+      "Properties": {
+        "ServiceToken": {"Fn::Join": [":", [
+          "arn:aws:lambda", 
+          {"Ref": "AWS::Region"}, {"Ref": "AWS::AccountId"}, 
+          "function", {"Ref": "CognitoIdentityCustomResourceLambdaName"} 
+        ]]},
+        "IdentityPoolName": {"Ref": "CognitoIdentityPoolName"},
+        "DeveloperProviderName": {"Ref": "DeveloperProviderName"},
+        "SupportedLoginProviders": {
+          "graph.facbeook.com": {"Ref": "FacebookAppID"}
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "MyCognitoIdentityPoolId": {
+      "Description": "The identity pool id",
+      "Value": {
+        "Ref": "MyCognitoIdentityPool"
+      }
+    }
+  }
+}

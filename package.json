@@ -1,0 +1,34 @@
+{
+  "name": "cfn-cognito-identity-pool",
+  "version": "0.0.1",
+  "description": "AWS CloudFormation Custom Lambda Resource | Cognito Identity Pool",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/istanbul/lib/cli cover ./node_modules/mocha/bin/_mocha",
+    "cfn-lambda-deploy": "node ./node_modules/cfn-lambda/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bendavis78/cfn-cognito-identity-pool.git"
+  },
+  "keywords": [
+    "aws",
+    "cloudformation",
+    "lambda",
+    "backed",
+    "custom",
+    "resource",
+    "cognito",
+    "identity",
+    "pool"
+  ],
+  "author": "Ben Davis <bendavis78@gmail.com> (https://github.com/bendavis78)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bendavis78/cfn-cognito-identity-pool/issues"
+  },
+  "homepage": "https://github.com/bendavis78/cfn-cognito-identity-pool#readme",
+  "dependencies": {
+    "cfn-lambda": "github:andrew-templeton/cfn-lambda#17f366a"
+  }
+}
