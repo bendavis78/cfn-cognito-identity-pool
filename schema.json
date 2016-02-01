@@ -9,18 +9,18 @@
   "properties": {
     "IdentityPoolId": {
       "type": "string",
-      "pattern": "[\w-]+:[0-9a-f-]+"
+      "pattern": "[\\w-]+:[0-9a-f-]+"
     },
     "AllowUnauthenticatedIdentities": {
       "type": "boolean"
     },
     "IdentityPoolName": {
       "type": "string",
-      "pattern": "[\w ]+"
+      "pattern": "[\\w ]+"
     },
     "DeveloperProviderName": {
-      "type": "string":,
-      "pattern": "[\w._-]+"
+      "type": "string",
+      "pattern": "[\\w._-]+"
     },
     "OpenIdConnectProviderARNs": {
       "type": "array",
